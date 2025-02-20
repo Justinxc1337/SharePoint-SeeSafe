@@ -1,1 +1,153 @@
-﻿
+﻿<!DOCTYPE html>
+<html lang="da">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Swiper Slider</title>
+    <link
+    rel="stylesheet"
+    href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"
+    />
+    <style>
+        .swiper {
+            width: 1000px;
+            height: 300px;
+        }
+
+        .swiper-slide {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .swiper-slide img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .buttons {
+            display: flex;
+            justify-content: center;
+            margin-top: 20px;
+        }
+
+        .buttons button {
+            margin: 0 10px;
+        }
+
+        .swiper-button-prev,
+        .swiper-button-next {
+            color: red;
+        }
+
+        .swiper-slide .text {
+            width: 100%;
+            height: 25%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: rgba(0, 0, 0, 0.5);
+            color: white;
+            font-size: 1.2em;
+            padding: 10px;
+            box-sizing: border-box;
+            position: absolute;
+            bottom: 0;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="swiper">
+        <!-- Additional required wrapper -->
+        <div class="swiper-wrapper">
+            <!-- Slides -->
+            <div class="swiper-slide">
+                <a href="/SitePages/Nyt-fra-ledelsen.aspx">
+                    <img src="Gumball2.png" alt="Gumball">
+                    <div class="text">Ny medarbejder Nicolai Nielsen</div>
+                </a>
+            </div>
+            <div class="swiper-slide">
+                <a href="/SitePages/Nyt-fra-ledelsen.aspx">
+                    <img src="SeeSafeBG.png" alt="SeeSafe">
+                    <div class="text">Candy Crush</div>
+                </a>
+            </div>
+            <div class="swiper-slide">
+                <a href="/SitePages/Nyt-fra-ledelsen.aspx">
+                    <img src="Darwin1.png" alt="Darwin">
+                    <div class="text">Korsør manden er Rasmus Stuhr? :O</div>
+                </a>
+            </div>
+            <div class="swiper-slide">
+                <a href="/SitePages/Nyt-fra-ledelsen.aspx">
+                    <img src="Gumball2.png" alt="Gumball">
+                    <div class="text">Netværk for begyndere</div>
+                </a>
+            </div>
+            <div class="swiper-slide">
+                <a href="/SitePages/Nyt-fra-ledelsen.aspx">
+                    <img src="SeeSafeBG.png" alt="SeeSafe">
+                    <div class="text">idk at this point</div>
+                </a>
+            </div>
+            <div class="swiper-slide">
+                <a href="/SitePages/Nyt-fra-ledelsen.aspx">
+                    <img src="Darwin1.png" alt="Darwin">
+                    <div class="text">loldle</div>
+                </a>
+            </div>
+        </div>
+        <!-- If we need pagination -->
+        <div class="swiper-pagination"></div>
+    
+        <!-- If we need navigation buttons -->
+        <div class="swiper-button-prev"></div>
+        <div class="swiper-button-next"></div>
+    
+        <!-- If we need scrollbar -->
+        <div class="swiper-scrollbar"></div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <script>
+        const swiper = new Swiper('.swiper', {
+          // Optional parameters
+            direction: 'horizontal',
+            loop: true,
+
+          // Autoplay parameters
+        autoplay: {
+            delay: 3000,
+            disableOnInteraction: true,
+            pauseOnMouseEnter: true,
+        },
+
+          // Number of slides to show and scroll
+        slidesPerView: 3,
+        slidesPerGroup: 1,
+
+          // Space between slides
+        spaceBetween: 10,
+
+          // Pagination
+        pagination: {
+            el: '.swiper-pagination',
+        },
+
+          // Navigation arrows
+        navigation: {
+            nextEl: '.swiper-button-next',
+            prevEl: '.swiper-button-prev',
+        },
+
+          // Scrollbar
+        scrollbar: {
+            el: '.swiper-scrollbar',
+        },
+        });
+    </script>
+</body>
+</html>

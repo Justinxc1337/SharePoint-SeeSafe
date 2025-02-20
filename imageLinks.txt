@@ -1,4 +1,4 @@
-﻿SeeSafe (SeeSafe logo_bg_RGB.png)
+﻿SeeSafe (SeeSafeBG.png)
 https://seesafeintra.sharepoint.com/_api/v2.1/sites/seesafeintra.sharepoint.com,08f412bb-7440-4f54-9af7-4fc2129b26cf,cec97a5f-595f-44ab-9030-051ff651292a/lists/DF181715-AD7B-4461-8306-63954B3CE40A/items/b418bd0b-478c-4de6-9039-741fdaac9f17/driveItem/thumbnails/0/c1600x99999/content?prefer=noRedirect,extendCacheMaxAge&clientType=modernWebPart&format=webp
 
 Gumball2 (Gumball2.png)

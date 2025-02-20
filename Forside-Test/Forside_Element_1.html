@@ -1,4 +1,8 @@
-﻿<img src="SeeSafeBG.png" alt="SeeSafe" id="SeeSafeBG">
+﻿<div style="position: relative; width: 100%; max-width: 100%;">
+    <img src="SeeSafeBG.png" alt="SeeSafe" id="SeeSafeBG">
+
+    <div id="personalGreeting">Henter brugeroplysninger...</div>
+</div>
 
 <style>
     #SeeSafeBG {
@@ -6,6 +10,55 @@
         height: 350px;
         object-fit: cover;
         object-position: center center;
-        /* clip-path: inset(0 0 50px 0); */
+    }
+
+    #personalGreeting {
+        position: absolute;
+        top: 20px;
+        left: 50%;
+        transform: translateX(-50%);
+        background: rgba(0, 0, 0, 0.6);
+        color: white;
+        font-size: 1.8em;
+        font-weight: bold;
+        padding: 10px 20px;
+        border-radius: 12px;
+        box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2);
+        transition: all 0.3s ease-in-out;
+        white-space: nowrap;
+    }
+
+    #personalGreeting.loaded {
+        background: rgba(0, 0, 0, 0.8);
+    }
+
+    @media (max-width: 768px) {
+        #personalGreeting {
+            font-size: 1.2em;
+            padding: 8px 15px;
+        }
     }
 </style>
+
+<script>
+    async function fetchUserName() {
+        try {
+            const response = await fetch("/_api/web/currentuser", {
+                headers: { "Accept": "application/json;odata=verbose" }
+            });
+
+            if (response.ok) {
+                const data = await response.json();
+                const userName = data.d.Title;
+                document.getElementById("personalGreeting").innerText = "Hej, " + userName + "!";
+                document.getElementById("personalGreeting").classList.add("loaded");
+            } else {
+                document.getElementById("personalGreeting").innerText = "Hej, velkommen!";
+            }
+        } catch (error) {
+            document.getElementById("personalGreeting").innerText = "Hej, velkommen!";
+        }
+    }
+
+    fetchUserName();
+</script>

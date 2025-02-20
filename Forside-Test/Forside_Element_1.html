@@ -2,9 +2,17 @@
     <img src="SeeSafeBG.png" alt="SeeSafe" id="SeeSafeBG">
 
     <div id="personalGreeting">Henter brugeroplysninger...</div>
+    <div id="warningText" style="display: none;">
+        <div id="warningTextLine1"></div>
+        <div id="warningTextLine2"></div>
+    </div>
 </div>
 
 <style>
+    body {
+        margin: 0;
+    }
+
     #SeeSafeBG {
         width: 100%;
         height: 350px;
@@ -32,10 +40,41 @@
         background: rgba(0, 0, 0, 0.8);
     }
 
+    #warningText {
+        position: absolute;
+        top: 70px;
+        left: 50%;
+        transform: translateX(-50%);
+        background: rgba(0, 0, 0, 0.6);
+        color: red;
+        padding: 10px 20px;
+        border-radius: 12px;
+        box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2);
+        transition: all 0.3s ease-in-out;
+        white-space: nowrap;
+    }
+
+    #warningTextLine1 {
+        font-size: 1.5em;
+        font-weight: bold;
+    }
+
+    #warningTextLine2 {
+        font-size: 1.2em;
+    }
+
     @media (max-width: 768px) {
         #personalGreeting {
             font-size: 1.2em;
             padding: 8px 15px;
+        }
+
+        #warningTextLine1 {
+            font-size: 1.2em;
+        }
+
+        #warningTextLine2 {
+            font-size: 1em;
         }
     }
 </style>
@@ -51,6 +90,7 @@
                 const data = await response.json();
                 const userName = data.d.Title;
                 document.getElementById("personalGreeting").innerText = "Hej, " + userName + "!";
+            
                 document.getElementById("personalGreeting").classList.add("loaded");
             } else {
                 document.getElementById("personalGreeting").innerText = "Hej, velkommen!";
@@ -61,4 +101,22 @@
     }
 
     fetchUserName();
+
+    // Function to set warning text
+    function setWarningText(line1, line2) {
+        const warningTextElement = document.getElementById("warningText");
+        const warningTextLine1 = document.getElementById("warningTextLine1");
+        const warningTextLine2 = document.getElementById("warningTextLine2");
+
+        if (line1 || line2) {
+            warningTextLine1.innerText = line1;
+            warningTextLine2.innerText = line2;
+            warningTextElement.style.display = "block";
+        } else {
+            warningTextElement.style.display = "none";
+        }
+    }
+
+    setWarningText("", ""); // No warning
+    setWarningText("Vigtigt! SeeSafe sikkerhed", "Rasmus Stuhr har ikke deltaget i torsdags loldle (Tilføjet for at fremvise et vigtigt problem, ville ikke vises normalt)"); // Uncomment to show a warning
 </script>
